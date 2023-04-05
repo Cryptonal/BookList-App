@@ -1,6 +1,6 @@
 //Book Class model
 class Book {
-    constructor(title, author,isbn){
+    constructor(title, author, isbn) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
@@ -9,8 +9,8 @@ class Book {
 
 
 //UI class - display books
-class UI{
-    static displayBooks(){
+class UI {
+    static displayBooks() {
         const StoredBooks = [
             {
                 title: "Book One",
@@ -26,12 +26,12 @@ class UI{
 
         //Iterating over the books to add and append these books to HTML
         const books = StoredBooks;
-        books.forEach((book) => UI.addBookToList(book));   
+        books.forEach((book) => UI.addBookToList(book));
     }
 
-    static addBookToList(book){
+    static addBookToList(book) {
         const list = document.querySelector("#book-list");
-        const row= document.createElement('tr'); 
+        const row = document.createElement('tr');
 
         row.innerHTML = `
         <td>${book.title}</td>
@@ -50,8 +50,19 @@ class UI{
 //Events: Display book
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
-//Events: Display Book
+//Events: Add  Book
+document.querySelector('#book-form').addEventListener('submit', (e) => {
 
+    e.preventDefault();
+    //first step - need to get values from form
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const isbn = document.querySelector("#isbn").value;
 
-//Event Listener - emove book
+    const book = new Book(title, author, isbn);
+    
+    UI.addBookToList(book);
 
+    //Event Listener - remove book
+
+})
