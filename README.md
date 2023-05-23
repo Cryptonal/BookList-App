@@ -1,5 +1,6 @@
 # BookList-App
 https://cryptonal.github.io/BookList-App/
+
 Local Storage, external Classes and objects, DOM manipulation, HTML manipulation from JS file used altogether to develop a Book List application. 
 
 Functionalities:
